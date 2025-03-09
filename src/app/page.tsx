@@ -37,7 +37,7 @@ export default function VibratoPiano() {
             className="mb-4 md:mb-0 md:w-1/3"
           />
           <p className="text-lg text-gray-600 text-center md:text-left leading-relaxed md:w-2/3">
-            Inspired by the sound of the Japanese harp koto (琴), a traditional
+            Inspired by the sound of the Japanese harp koto (箏), a traditional
             instrument whose strings are pressed to create subtle pitch
             variations and effects like vibrato – now, you can explore this
             unique sound with ease.

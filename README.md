@@ -13,11 +13,3 @@ Vibrato Piano is a web application built with [Next.js](https://nextjs.org/) and
 - Brighter sound with equalization to enhance the treble.
 
 The idea came from the frustration of not finding accessible tools to experiment with koto vibrato, resulting in a practical and interactive solution.
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SeitiYamatsumi/Piano-Vibrato.git
-   cd piano-strings-app
-   ```

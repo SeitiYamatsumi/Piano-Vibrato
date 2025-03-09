@@ -18,6 +18,6 @@ The idea came from the frustration of not finding accessible tools to experiment
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/piano-strings-app.git
+   git clone https://github.com/SeitiYamatsumi/Piano-Vibrato.git
    cd piano-strings-app
    ```

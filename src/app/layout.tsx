@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Piano Virbrato",
+  title: "Piano Vibrato",
   description: "Created by Eduardo Seiti Yamatsumi",
 };
 export default function RootLayout({

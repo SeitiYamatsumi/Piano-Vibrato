@@ -229,7 +229,15 @@ const Piano = () => {
   const isSharp = (note: string) => note.includes("#");
 
   return (
-    <div className="p-4 bg-white rounded shadow-lg w-full">
+    <div className="pt-2 pb-4 bg-white rounded shadow-lg w-full">
+      <div className="flex justify-between w-full mb-2 lg:hidden">
+        <button onClick={scrollLeft} className="px-4 py-2 bg-gray-300 rounded">
+          ◀️
+        </button>
+        <button onClick={scrollRight} className="px-4 py-2 bg-gray-300 rounded">
+          ▶️
+        </button>
+      </div>
       <div
         ref={scrollRef}
         className="relative flex flex-nowrap gap-1 overflow-hidden touch-pan-x"
@@ -249,8 +257,8 @@ const Piano = () => {
               }}
               className={`relative lg:flex-auto flex-none flex flex-col items-center justify-end cursor-pointer select-none ${
                 isSharp(note)
-                  ? "w-11 h-32 bg-black text-white z-10 -mx-6"
-                  : "w-18 h-60 bg-gray-200 text-black"
+                  ? "w-11 h-30 bg-black text-white z-10 -mx-6"
+                  : "w-18 h-56 bg-gray-200 text-black"
               }`}
               onMouseDown={(e) => handleMouseDown(index, e)}
               onMouseMove={(e) => handleMouseMove(index, e)}
@@ -274,14 +282,6 @@ const Piano = () => {
             </div>
           );
         })}
-      </div>
-      <div className="flex justify-between w-full mt-2 lg:hidden">
-        <button onClick={scrollLeft} className="px-4 py-2 bg-gray-300 rounded">
-          ◀️
-        </button>
-        <button onClick={scrollRight} className="px-4 py-2 bg-gray-300 rounded">
-          ▶️
-        </button>
       </div>
     </div>
   );

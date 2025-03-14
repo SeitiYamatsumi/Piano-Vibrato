@@ -3,13 +3,13 @@ import * as Tone from "tone";
 export const createKotoSampler = () => {
   const reverb = new Tone.Reverb({
     decay: 2.0,
-    wet: 0.6,
+    wet: 0.8,
   }).toDestination();
 
   const eq = new Tone.EQ3({
-    low: -6,    // Slightly reduces the bass
+    low: 0,    // Slightly reduces the bass
     mid: 0,     // Keeps the mid frequencies neutral
-    high: 6,    // Boosts the treble for more brightness
+    high: 0,    // Boosts the treble for more brightness
   }).connect(reverb);
 
   const pitchShift = new Tone.PitchShift({
@@ -19,7 +19,8 @@ export const createKotoSampler = () => {
 
   const sampler = new Tone.Sampler({
     urls: {
-      C4: "/koto/koto_C4.wav",
+      //C4: "/koto/koto-C_major.wav",
+      C5: "/koto/koto-C5.wav",
     },
     release: 1.0,
     attack: 0.002, // Faster attack to emphasize initial harmonics
@@ -52,10 +53,11 @@ export const updatePitch = (
   const clampedOffset = Math.max(-maxOffset, Math.min(maxOffset, offset));
   const maxFreqChange = baseFreq * (Math.pow(2, 1 / 12) - 1);
 
-  let freqChange = (Math.abs(clampedOffset) / maxOffset) * maxFreqChange;
+  let freqChange = (Math.abs(clampedOffset) / maxOffset) * maxFreqChange; // Sempre positivo
   if (Math.abs(clampedOffset) > 0) {
-    freqChange += maxFreqChange * 0.1;
+    freqChange += maxFreqChange * 0.1; // Incremento leve, sempre positivo
   }
 
-  pitchShift.pitch = freqChange / maxFreqChange;
+  const pitch = Math.min(1, freqChange / maxFreqChange); // Limita a +1 semitom
+  pitchShift.pitch = pitch;
 };

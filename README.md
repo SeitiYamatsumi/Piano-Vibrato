@@ -1,7 +1,7 @@
 # Vibrato Piano
 
 A virtual piano that allows you to adjust the pitch of the notes by dragging the mouse or finger within the key, creating effects such as note variations and vibrato. This is a personal project developed to address the lack of simple and intuitive platforms that simulate this characteristic sound, allowing you to explore this unique experience with ease.  
-Inspired by the sound of the Japanese koto (琴) harp, a traditional instrument whose strings are pressed to create subtle pitch variations and sound effects.
+Inspired by the sound of the Japanese koto (箏) harp, a traditional instrument whose strings are pressed to create subtle pitch variations and sound effects.
 
 ## About the Project
 

@@ -3,6 +3,12 @@
 import { useEffect } from "react";
 import Piano from "@/components/Piano";
 import Image from "next/image";
+import Hotjar from "@hotjar/browser";
+
+const siteId = 5332348;
+const hotjarVersion = 6;
+
+Hotjar.init(siteId, hotjarVersion);
 
 export default function VibratoPiano() {
   useEffect(() => {

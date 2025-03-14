@@ -21,7 +21,7 @@ export default function VibratoPiano() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold mb-4 text-center text-gray-800">
+      <h1 className="text-3xl font-bold mb-4 text-center text-gray-800 hidden lg:block">
         Vibrato Piano
       </h1>
       <Piano />

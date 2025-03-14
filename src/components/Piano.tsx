@@ -218,7 +218,7 @@ const Piano = () => {
 
   return (
     <div className="p-4 bg-white rounded shadow-lg w-full">
-      <div className="relative flex flex-nowrap gap-1 overflow-x-auto touch-none">
+      <div className="relative flex flex-nowrap gap-1 overflow-x-auto touch-pan-x">
         {noteNames.map((note, index) => {
           const state = keyStates.get(index);
           const offset = state?.smoothedOffset || 0;
@@ -232,10 +232,10 @@ const Piano = () => {
               ref={(el) => {
                 if (el) keyRefs.current[index] = el;
               }}
-              className={`relative flex flex-col items-center justify-end cursor-pointer select-none ${
+              className={`relative lg:flex-auto flex-none flex flex-col items-center justify-end cursor-pointer select-none ${
                 isSharp(note)
-                  ? "w-12 h-32 bg-black text-white z-10 -mx-6"
-                  : "w-20 h-60 bg-gray-200 text-black"
+                  ? "w-11 h-32 bg-black text-white z-10 -mx-6"
+                  : "w-18 h-60 bg-gray-200 text-black"
               }`}
               onMouseDown={(e) => handleMouseDown(index, e)}
               onMouseMove={(e) => handleMouseMove(index, e)}

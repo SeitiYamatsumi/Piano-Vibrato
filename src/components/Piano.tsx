@@ -59,6 +59,7 @@ const noteNames = [
 
 const Piano = () => {
   const keyRefs = useRef<HTMLDivElement[]>([]); // Reference to store key DOM elements
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [keyStates, setKeyStates] = useState<Map<number, KeyState>>(new Map()); // State for each key's state
   const [audioStarted, setAudioStarted] = useState(false); // Flag to check if audio is started
   const [kotoSampler, setKotoSampler] = useState<ReturnType<
@@ -212,13 +213,27 @@ const Piano = () => {
       handleEnd(index, touch.identifier); // End the note on touch end
     }
   };
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -100, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 100, behavior: "smooth" });
+    }
+  };
 
   // Helper function to check if the note is sharp (e.g., C#)
   const isSharp = (note: string) => note.includes("#");
 
   return (
     <div className="p-4 bg-white rounded shadow-lg w-full">
-      <div className="relative flex flex-nowrap gap-1 overflow-x-auto touch-pan-x">
+      <div
+        ref={scrollRef}
+        className="relative flex flex-nowrap gap-1 overflow-hidden touch-pan-x"
+      >
         {noteNames.map((note, index) => {
           const state = keyStates.get(index);
           const offset = state?.smoothedOffset || 0;
@@ -259,6 +274,14 @@ const Piano = () => {
             </div>
           );
         })}
+      </div>
+      <div className="flex justify-between w-full mt-2 lg:hidden">
+        <button onClick={scrollLeft} className="px-4 py-2 bg-gray-300 rounded">
+          ◀️
+        </button>
+        <button onClick={scrollRight} className="px-4 py-2 bg-gray-300 rounded">
+          ▶️
+        </button>
       </div>
     </div>
   );

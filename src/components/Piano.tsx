@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as Tone from "tone";
 import {
-  createKotoSampler,
+  createSampler,
   getNoteFromIndex,
   updatePitch,
   getFrequency,
@@ -63,13 +63,13 @@ const Piano = () => {
   const [keyStates, setKeyStates] = useState<Map<number, KeyState>>(new Map()); // State for each key's state
   const [audioStarted, setAudioStarted] = useState(false); // Flag to check if audio is started
   const [kotoSampler, setKotoSampler] = useState<ReturnType<
-    typeof createKotoSampler
+    typeof createSampler
   > | null>(null); // Sampler for Koto sound
 
   // Initialize the Koto sampler
   useEffect(() => {
     const initializeSampler = async () => {
-      const samplerInstance = createKotoSampler(); // Create the Koto sampler
+      const samplerInstance = createSampler(); // Create the sampler
       await samplerInstance.sampler.loaded; // Wait until the sampler is fully loaded
       setKotoSampler(samplerInstance); // Set the sampler in state
     };

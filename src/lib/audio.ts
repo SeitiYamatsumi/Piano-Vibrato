@@ -1,6 +1,6 @@
 import * as Tone from "tone";
 
-export const createKotoSampler = () => {
+export const createSampler = () => {
   const reverb = new Tone.Reverb({
     decay: 2.0,
     wet: 0.8,
